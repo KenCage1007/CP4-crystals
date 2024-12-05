@@ -1,7 +1,9 @@
+import { createUserWithEmailAndPassword } from 'firebase/auth'; // Firebase method for account creation
 import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/CreateAccount.css';
 import { UserContext } from '../UserContext';
+import { auth } from '../utils/firebase'; // Import Firebase
 
 const CreateAccount = () => {
   const [formData, setFormData] = useState({
@@ -13,6 +15,7 @@ const CreateAccount = () => {
   });
   const [emailError, setEmailError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(''); // Error message for Firebase errors
 
   const { updateUser } = useContext(UserContext); // Access the context to update the logged-in user
   const navigate = useNavigate();
@@ -26,33 +29,39 @@ const CreateAccount = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Retrieve stored users from localStorage
-    const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
+    try {
+      // Firebase account creation
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        formData.email,
+        formData.password
+      );
 
-    // Check if the email is already in use
-    const isEmailUsed = storedUsers.some((user) => user.email === formData.email);
-    if (isEmailUsed) {
-      setEmailError("There's already an account with this email.");
-      return;
+      // Successfully created user, store additional info in UserContext
+      const user = userCredential.user;
+
+      // Update user data (you can also save to Firestore if needed)
+      const newUser = {
+        email: formData.email,
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        phoneNumber: formData.phoneNumber,
+        uid: user.uid,
+      };
+
+      // Update the context and localStorage
+      updateUser(newUser);
+      localStorage.setItem('currentUser', JSON.stringify(newUser));
+
+      console.log('Account Created and Signed In:', newUser);
+      navigate('/dashboard'); // Navigate to the dashboard
+    } catch (error) {
+      console.error('Error creating account:', error);
+      setErrorMessage('An error occurred. Please try again.'); // Display error message
     }
-
-    // Add the new user to the stored users
-    storedUsers.push(formData);
-    localStorage.setItem('users', JSON.stringify(storedUsers));
-
-    // Automatically sign in the user by saving their data in currentUser
-    localStorage.setItem('currentUser', JSON.stringify(formData));
-
-    // Update the user in the context to trigger header update
-    updateUser(formData);
-
-    // Clear the error and navigate to the dashboard
-    setEmailError('');
-    console.log('Account Created and Signed In:', formData);
-    navigate('/dashboard');
   };
 
   return (
@@ -150,6 +159,7 @@ const CreateAccount = () => {
               className="create-account-input"
             />
           </div>
+          {errorMessage && <div className="error-message">{errorMessage}</div>} {/* Display Firebase error */}
           <button type="submit" className="create-account-submit-button">
             Create Account
           </button>

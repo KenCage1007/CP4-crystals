@@ -1,12 +1,13 @@
-import React from 'react'
+import React from 'react';
+import ProductCatalog from '../components/ProductCatalog';
 
 const Home = () => {
   return (
     <div>
-      <h1>Welcome to Oasis Wishes!</h1>
-      <p>Your one-stop shop for crystals, incense, jewelry, and more!</p>
+      <h1>Welcome to Oasis Wishes</h1>
+      <ProductCatalog /> {/* Render ProductCatalog here */}
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

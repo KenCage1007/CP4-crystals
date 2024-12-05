@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import Header from './components/Header';
+import ProductCatalog from './components/ProductCatalog';
 import About from './pages/About';
 import Cart from './pages/Cart';
 import CreateAccount from './pages/CreateAccount';
 import Dashboard from './pages/Dashboard';
+import FavoritesPage from './pages/FavoritesPage';
 import ForgotPassword from './pages/ForgotPassword';
 import Home from './pages/Home';
 import SignIn from './pages/SignIn';
@@ -17,7 +19,7 @@ const App = () => {
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem('currentUser'));
     setCurrentUser(storedUser || null);
-    setLoading(false); // Finish loading
+    setLoading(false);
   }, []);
 
   const handleLogin = (user) => {
@@ -28,7 +30,7 @@ const App = () => {
     setCurrentUser(null);
   };
 
-  if (loading) return <div>Loading...</div>; // Prevent blank screen during state initialization
+  if (loading) return <div>Loading...</div>;
 
   return (
     <Router>
@@ -42,6 +44,8 @@ const App = () => {
           <Route path="/signin" element={<SignIn onLogin={handleLogin} />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/create-account" element={<CreateAccount />} />
+          <Route path="/products" element={<ProductCatalog />} />
+          <Route path="/favorites" element={<FavoritesPage />} />
         </Routes>
       </main>
     </Router>

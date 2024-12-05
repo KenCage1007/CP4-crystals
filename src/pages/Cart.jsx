@@ -12,7 +12,7 @@ const Cart = ({ user }) => {
     <div className="cart-page">
       <div className="empty-cart">
         <h1>Your cart is empty</h1>
-        <p>{user ? "Check out what we're featuring now!" : "Please sign in to access your saved items."}</p>
+        <p>Check out what we're featuring now!</p>
         <button
           className="home-button"
           onClick={() => window.location.href = '/'}

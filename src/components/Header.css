@@ -1,43 +1,11 @@
 /* General Header Styling */
 .header {
-    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #6F4E37;
-    padding: 20px;
+    padding: 10px 20px;
     color: #fff;
-    overflow: hidden; /* Ensures decorative image stays within the header */
-}
-
-/* Decorative Vines Styling */
-.deco-vines-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: calc(100% - 110px); /* Full width minus the padding needed to fit the left and right icons */
-    height: 100%;
-    z-index: 1; /* Ensure the image stays behind all header elements */
-    pointer-events: none; /* Allow user interaction with elements above */
-    overflow: hidden;
-    margin: 0 55px; /* Ensure the left edge starts at the lines icon and the right edge touches the person icon */
-}
-
-.deco-vines {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Cover the container without stretching */
-    opacity: 0.6; /* Make the image slightly transparent for better readability */
-}
-
-/* Header Content Styling */
-.header-content {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 2; /* Content should appear above the decorative vines */
 }
 
 /* Left Section Styling (Logo + Menu Icon) */
@@ -72,7 +40,7 @@
     width: 25px;
     height: 25px;
     cursor: pointer;
-    filter: brightness(0) invert(1);
+    fill: black; /* Always black for visibility */
     transition: filter 0.3s ease;
 }
 
@@ -91,10 +59,8 @@
     padding: 5px 10px;
     margin: 0 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    z-index: 2; /* Ensure it stays above the decorative vines */
 }
 
-/* Input field inside Search Bar */
 .search-input {
     flex-grow: 1;
     border: none;
@@ -109,7 +75,6 @@
     color: #aaa;
 }
 
-/* Search Button Styling */
 .search-button {
     background: none;
     border: none;
@@ -133,12 +98,22 @@
 .person-icon {
     width: 25px;
     height: 25px;
-    filter: brightness(0) invert(1);
+    fill: black; /* Always black for visibility */
 }
 
 .sign-in-text {
     font-size: 1rem;
     color: #fff;
+}
+
+.sign-in-container:hover::after {
+    content: "▼";
+    position: absolute;
+    top: 50%;
+    right: -15px;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 0.8rem;
 }
 
 /* Basket Button */
@@ -307,8 +282,42 @@
     display: block;
 }
 
-/* Add underline for all text in a section when hovered */
 .menu-row.hovered .menu-action,
 .menu-row.hovered .menu-action-right {
     text-decoration: underline;
+}
+
+/* Sign-In and Create Account Buttons */
+.sign-in-button {
+    width: 100%;
+    padding: 10px 15px;
+    background-color: #1d5c3c;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.sign-in-button:hover {
+    background-color: #154d2c;
+}
+
+.create-account-button {
+    width: 100%;
+    padding: 10px 15px;
+    background-color: #ce9b9b;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+}
+
+.create-account-button:hover {
+    background-color: #a08080;
 }

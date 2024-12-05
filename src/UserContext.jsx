@@ -1,29 +1,38 @@
-import React, { createContext, useEffect, useState } from 'react';
+import { onAuthStateChanged } from "firebase/auth";
+import React, { createContext, useEffect, useState } from "react";
+import { auth } from "./utils/firebase";
 
 export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(() => {
-    const storedUser = localStorage.getItem('currentUser');
+    const storedUser = localStorage.getItem("currentUser");
     return storedUser ? JSON.parse(storedUser) : null;
   });
 
   const updateUser = (newUser) => {
     if (newUser) {
-      localStorage.setItem('currentUser', JSON.stringify(newUser));
+      localStorage.setItem("currentUser", JSON.stringify(newUser));
     } else {
-      localStorage.removeItem('currentUser');
+      localStorage.removeItem("currentUser");
     }
     setUser(newUser);
   };
 
   useEffect(() => {
-    const handleStorageChange = () => {
-      const updatedUser = JSON.parse(localStorage.getItem('currentUser'));
-      setUser(updatedUser);
-    };
-    window.addEventListener('storage', handleStorageChange);
-    return () => window.removeEventListener('storage', handleStorageChange);
+    const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
+      if (firebaseUser) {
+        const userData = {
+          uid: firebaseUser.uid,
+          email: firebaseUser.email,
+        };
+        updateUser(userData);
+      } else {
+        updateUser(null);
+      }
+    });
+
+    return () => unsubscribe();
   }, []);
 
   return (

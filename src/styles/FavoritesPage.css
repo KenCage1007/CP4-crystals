@@ -1,0 +1,69 @@
+/* General Favorites Page Styling */
+.favorites-page {
+    padding: 20px;
+    text-align: center;
+    background-color: #fef9e6; /* Match the theme */
+  }
+  
+  .favorites-page h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #6f4e37; /* Match the shop's theme */
+    margin-bottom: 20px;
+  }
+  
+  /* Favorites List Styling */
+  .favorites-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  /* Favorite Card Styling */
+  .favorite-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .favorite-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Favorite Image Styling */
+  .favorite-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  /* Favorite Text Styling */
+  .favorite-card h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #6f4e37;
+    margin-bottom: 10px;
+  }
+  
+  .favorite-card p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 5px;
+  }
+  
+  /* No Favorites Message */
+  .no-favorites-message {
+    font-size: 1.2rem;
+    color: #999;
+    margin-top: 50px;
+  }
+  
