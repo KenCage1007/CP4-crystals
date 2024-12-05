@@ -1,0 +1,158 @@
+/* General Page Styling */
+.create-account-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 50px;
+    background-image: url('/sign-in-bg 2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Create Account Container */
+.create-account-container {
+    width: 400px;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Styling */
+.create-account-header {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Form Field Styling */
+.create-account-field {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.create-account-label {
+    display: block;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.create-account-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.create-account-input:focus {
+    border-color: #1d5c3c;
+}
+
+/* Password Input Styling */
+.password-input-container {
+    position: relative;
+}
+
+.show-password-button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 0.9rem;
+    color: #1d5c3c;
+    cursor: pointer;
+}
+
+.show-password-button:hover {
+    text-decoration: underline;
+}
+
+/* Email Error Styling */
+.email-error {
+    font-size: 0.9rem;
+    color: red;
+    margin-top: 5px;
+}
+
+.email-error-link {
+    color: red;
+    font-weight: bold;
+    text-decoration: underline;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.email-error-link:hover {
+    color: #b30000;
+    text-decoration: none;
+}
+
+/* Submit Button */
+.create-account-submit-button {
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #1d5c3c;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.create-account-submit-button:hover {
+    background-color: #154d2c;
+}
+
+/* Divider Styling */
+.divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    width: 400px;
+}
+
+.divider .line {
+    flex: 1;
+    height: 1px;
+    background-color: #ccc;
+    margin: 0 10px;
+}
+
+.divider-text {
+    font-size: 1rem;
+    color: #999;
+    text-align: center;
+}
+
+/* Sign In Link */
+.sign-in-link {
+    font-size: 1rem;
+    color: #1d5c3c;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    text-align: center;
+    text-decoration: none;
+    background: none;
+    border: none;
+}
+
+.sign-in-link:hover {
+    text-decoration: underline;
+}

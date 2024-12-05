@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #fef9e6; /* Matches shop theme */
+  color: #333; /* Default text color */
+}
+
+h1 {
+  color: #1d5c3c; /* Matches shop theme */
+  text-align: center;
+  margin-top: 20px;
+}
+
+p {
+  line-height: 1.5;
+  margin: 10px;
+}

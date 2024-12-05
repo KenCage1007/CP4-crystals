@@ -1,0 +1,314 @@
+/* General Header Styling */
+.header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #6F4E37;
+    padding: 20px;
+    color: #fff;
+    overflow: hidden; /* Ensures decorative image stays within the header */
+}
+
+/* Decorative Vines Styling */
+.deco-vines-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: calc(100% - 110px); /* Full width minus the padding needed to fit the left and right icons */
+    height: 100%;
+    z-index: 1; /* Ensure the image stays behind all header elements */
+    pointer-events: none; /* Allow user interaction with elements above */
+    overflow: hidden;
+    margin: 0 55px; /* Ensure the left edge starts at the lines icon and the right edge touches the person icon */
+}
+
+.deco-vines {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the container without stretching */
+    opacity: 0.6; /* Make the image slightly transparent for better readability */
+}
+
+/* Header Content Styling */
+.header-content {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2; /* Content should appear above the decorative vines */
+}
+
+/* Left Section Styling (Logo + Menu Icon) */
+.left-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Right Section Styling (Sign In + Basket) */
+.right-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Shop Name Styling */
+.ballet-shop-name {
+    font-family: "Ballet", cursive;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-size: 1.8rem;
+    color: #d4b32a;
+}
+
+.logo {
+    text-decoration: none;
+}
+
+/* Menu Icon Styling */
+.menu-icon {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    filter: brightness(0) invert(1);
+    transition: filter 0.3s ease;
+}
+
+.menu-icon:hover {
+    filter: brightness(0.8);
+}
+
+/* Search Bar Styling */
+.search-bar {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    max-width: 400px;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 5px 10px;
+    margin: 0 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 2; /* Ensure it stays above the decorative vines */
+}
+
+/* Input field inside Search Bar */
+.search-input {
+    flex-grow: 1;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 10px;
+    font-size: 1rem;
+    outline: none;
+    color: #333;
+}
+
+.search-input::placeholder {
+    color: #aaa;
+}
+
+/* Search Button Styling */
+.search-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.magnifier-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* Sign-In Section */
+.sign-in-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    position: relative;
+}
+
+.person-icon {
+    width: 25px;
+    height: 25px;
+    filter: brightness(0) invert(1);
+}
+
+.sign-in-text {
+    font-size: 1rem;
+    color: #fff;
+}
+
+/* Basket Button */
+.basket-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.basket-icon {
+    width: 25px;
+    height: 25px;
+    filter: brightness(0) invert(1);
+}
+
+/* Left-Side Menu Styling */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    height: 100%;
+    width: 300px;
+    background-color: #fff;
+    z-index: 1001;
+    transition: all 0.3s ease;
+}
+
+.menu-overlay.open {
+    left: 0;
+}
+
+.menu {
+    padding: 20px;
+}
+
+.menu h2 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu li {
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+/* Right-Side Sign-In Menu Styling */
+.sign-in-menu-overlay {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    height: 100%;
+    width: 300px;
+    background-color: #fff;
+    z-index: 1001;
+    transition: all 0.3s ease;
+}
+
+.sign-in-menu-overlay.open {
+    right: 0;
+}
+
+.sign-in-menu {
+    padding: 20px;
+}
+
+.menu-header {
+    font-size: 2rem; /* Bigger font size */
+    font-weight: bold; /* Bold text */
+    margin-bottom: 15px;
+}
+
+/* Divider */
+.menu-divider {
+    border-top: 1px solid #ddd;
+    margin: 10px 0;
+}
+
+/* Section Row Styling */
+.menu-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space between the two sections */
+    padding: 10px 0;
+}
+
+/* SVG Icon Styling */
+.menu-icon {
+    width: 18px;
+    height: 18px;
+    fill: black; /* Always black for visibility */
+    margin-right: 8px;
+}
+
+/* Text Links - Always Visible and Interactive */
+.menu-action {
+    color: #444; /* Slightly darker shade for emphasis */
+    font-size: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+}
+
+/* Lighter Text for Specific Actions */
+.menu-action-light {
+    color: #777; /* Slightly lighter shade for secondary actions */
+}
+
+/* Text Underline Effect When Hovered */
+.menu-action:hover,
+.menu-action-right:hover,
+.menu-row:hover .menu-action {
+    text-decoration: underline;
+}
+
+/* Menu Row Alignment for Left and Right Sections */
+.menu-action-left {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.menu-action-right {
+    color: #777; /* Slightly lighter color for these actions */
+    cursor: pointer;
+    margin-left: 20px; /* Gap between left and right sections */
+}
+
+/* Sign-Out Button Styling */
+.sign-out-button {
+    width: 100%;
+    padding: 10px 15px;
+    margin-top: 20px;
+    background-color: #ce9b9b;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 1rem;
+    transition: background-color 0.2s ease;
+}
+
+.sign-out-button:hover {
+    background-color: #a08080;
+}
+
+/* Background Overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: none;
+}
+
+.overlay.open {
+    display: block;
+}
+
+/* Add underline for all text in a section when hovered */
+.menu-row.hovered .menu-action,
+.menu-row.hovered .menu-action-right {
+    text-decoration: underline;
+}

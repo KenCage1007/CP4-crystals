@@ -1,0 +1,135 @@
+/* Cart Page Styling */
+.cart-page {
+    padding: 20px;
+    text-align: center;
+}
+
+.empty-cart h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.empty-cart p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Home Button Styling */
+.home-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #1d5c3c; /* Green button color */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.2s ease;
+}
+
+.home-button:hover {
+    background-color: #154d2c; /* Darker green on hover */
+}
+
+/* Toggle Header Styling */
+.toggle-header {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    gap: 20px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-bottom: 2px solid #1d5c3c; /* Divider for header */
+    padding-bottom: 10px;
+}
+
+.toggle-link {
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.toggle-link.active {
+    color: #333; /* Active section color */
+    text-decoration: underline; /* Underline active section */
+}
+
+.toggle-link.inactive {
+    color: #aaa; /* Greyed out inactive section */
+}
+
+.toggle-link.inactive:hover {
+    color: #555; /* Darker grey on hover for inactive link */
+}
+
+/* Saved for Later and Favorites Section */
+.saved-for-later,
+.favorites {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.saved-for-later p,
+.favorites p {
+    color: #555;
+    font-size: 1rem;
+}
+
+/* Saved for Later Section Styling */
+.saved-empty {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.saved-icon {
+    width: 60px;
+    height: 60px;
+    fill: #e60023; /* Red color for the clock icon */
+    margin-bottom: 20px;
+}
+
+.saved-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.saved-description {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Favorites Section Styling */
+.favorites-empty {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.favorites-icon {
+    width: 60px;
+    height: 60px;
+    fill: #e60023; /* Target red color for the heart icon */
+    margin-bottom: 20px;
+}
+
+.favorites-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.favorites-description {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+    max-width: 600px;
+    margin: 0 auto;
+}
