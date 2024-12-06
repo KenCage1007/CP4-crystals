@@ -4,6 +4,194 @@
     text-align: center;
 }
 
+/* Toggle Header Styling */
+.toggle-header {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 20px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-bottom: 2px solid #1d5c3c;
+    padding-bottom: 10px;
+}
+
+.toggle-link {
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.toggle-link.active {
+    color: #333;
+    text-decoration: underline;
+}
+
+.toggle-link.inactive {
+    color: #aaa;
+}
+
+.toggle-link.inactive:hover {
+    color: #555;
+}
+
+/* Saved for Later and Favorites Section */
+.saved-for-later,
+.favorites {
+    margin-top: 20px;
+    text-align: left;
+    padding: 0 20px;
+}
+
+.saved-for-later p,
+.favorites p {
+    color: #555;
+    font-size: 1rem;
+}
+
+/* Saved for Later Section Styling */
+.saved-empty {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.saved-icon {
+    width: 40px; /* Restored size */
+    height: 40px; /* Restored size */
+    fill: #e60023; /* Red color for the clock icon */
+    margin-bottom: 20px;
+}
+
+.saved-title {
+    font-size: 1.5rem; /* Restored size */
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.saved-description {
+    font-size: 0.9rem; /* Restored size */
+    color: #555;
+    line-height: 1.5;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Favorites Section Styling */
+.favorites-empty {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.favorites-icon {
+    width: 40px; /* Restored size */
+    height: 40px; /* Restored size */
+    fill: #e60023; /* Target red color for the heart icon */
+    margin-bottom: 20px;
+}
+
+.favorites-title {
+    font-size: 1.5rem; /* Restored size */
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.favorites-description {
+    font-size: 0.9rem; /* Restored size */
+    color: #555;
+    line-height: 1.5;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Cart Items Section */
+.cart-items {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.cart-item-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    margin-right: 20px;
+}
+
+.cart-item-details {
+    flex: 1;
+    text-align: left;
+}
+
+.cart-item-details h3 {
+    font-size: 1.2rem;
+    margin: 5px 0;
+}
+
+.cart-item-details p {
+    color: #555;
+    margin: 3px 0;
+}
+
+.quantity-label {
+    font-size: 0.9rem;
+    margin-right: 5px;
+}
+
+.quantity-dropdown {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.remove-item-button {
+    padding: 5px 10px;
+    background-color: #ce9b9b;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+}
+
+.remove-item-button:hover {
+    background-color: #a08080;
+}
+
+/* Checkout Button Styling */
+.checkout-button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #1d5c3c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.2s ease;
+}
+
+.checkout-button:hover {
+    background-color: #154d2c;
+}
+
+/* Empty Cart Styling */
 .empty-cart h1 {
     font-size: 2rem;
     font-weight: bold;
@@ -21,7 +209,7 @@
 .home-button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #1d5c3c; /* Green button color */
+    background-color: #1d5c3c;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -32,104 +220,67 @@
 }
 
 .home-button:hover {
-    background-color: #154d2c; /* Darker green on hover */
+    background-color: #154d2c;
 }
-
-/* Toggle Header Styling */
-.toggle-header {
+/* Popup Overlay */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
-    margin-top: 40px;
-    gap: 20px;
-    font-weight: bold;
-    font-size: 1.2rem;
-    border-bottom: 2px solid #1d5c3c; /* Divider for header */
-    padding-bottom: 10px;
+    align-items: center;
+    z-index: 1000;
 }
 
-.toggle-link {
+/* Popup Content */
+.popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Popup Buttons */
+.confirm-button,
+.cancel-button,
+.close-button {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
     cursor: pointer;
-    transition: color 0.3s ease;
+    transition: background-color 0.2s ease;
 }
 
-.toggle-link.active {
-    color: #333; /* Active section color */
-    text-decoration: underline; /* Underline active section */
+.confirm-button {
+    background-color: #1d5c3c;
+    color: #fff;
 }
 
-.toggle-link.inactive {
-    color: #aaa; /* Greyed out inactive section */
+.confirm-button:hover {
+    background-color: #154d2c;
 }
 
-.toggle-link.inactive:hover {
-    color: #555; /* Darker grey on hover for inactive link */
+.cancel-button {
+    background-color: #ce9b9b;
+    color: #fff;
 }
 
-/* Saved for Later and Favorites Section */
-.saved-for-later,
-.favorites {
-    margin-top: 20px;
-    text-align: left;
+.cancel-button:hover {
+    background-color: #a08080;
 }
 
-.saved-for-later p,
-.favorites p {
-    color: #555;
-    font-size: 1rem;
+.close-button {
+    background-color: #6f4e37;
+    color: #fff;
 }
 
-/* Saved for Later Section Styling */
-.saved-empty {
-    text-align: center;
-    margin-top: 40px;
-}
-
-.saved-icon {
-    width: 60px;
-    height: 60px;
-    fill: #e60023; /* Red color for the clock icon */
-    margin-bottom: 20px;
-}
-
-.saved-title {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 15px;
-}
-
-.saved-description {
-    font-size: 1rem;
-    color: #555;
-    line-height: 1.5;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-/* Favorites Section Styling */
-.favorites-empty {
-    text-align: center;
-    margin-top: 40px;
-}
-
-.favorites-icon {
-    width: 60px;
-    height: 60px;
-    fill: #e60023; /* Target red color for the heart icon */
-    margin-bottom: 20px;
-}
-
-.favorites-title {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 15px;
-}
-
-.favorites-description {
-    font-size: 1rem;
-    color: #555;
-    line-height: 1.5;
-    max-width: 600px;
-    margin: 0 auto;
+.close-button:hover {
+    background-color: #543a2b;
 }

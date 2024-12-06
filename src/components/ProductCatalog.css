@@ -1,55 +1,85 @@
-/* Product Card */
 .product-card {
-    position: relative;
-    background: #fefefe;
+    position: relative; /* Ensure the card is the positioning context */
+    width: 200px; /* Adjust the width */
+    padding: 10px;
+    margin: 10px;
     border: 1px solid #ddd;
     border-radius: 8px;
-    padding: 16px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease;
-  }
-  
-  .product-card:hover {
-    transform: translateY(-5px);
-  }
-  
-  /* Heart Icon */
-  .heart-icon {
-    position: absolute;
-    top: 10px;
-    right: 10px;
+    background-color: #fff;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.product-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.product-card h3 {
+    font-size: 1rem;
+    margin: 5px 0;
+}
+
+.product-card p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.heart-icon {
+    position: absolute; /* Position the heart relative to the card */
+    top: 10px; /* Position near the top */
+    right: 10px; /* Position near the right */
+    font-size: 1.2rem;
+    color: #f00; /* Red color for the heart */
     cursor: pointer;
+    z-index: 1; /* Ensure it stays above other elements */
+    transition: transform 0.2s ease; /* Add a hover effect */
+}
+
+.heart-icon:hover {
+    transform: scale(1.2); /* Slightly enlarge on hover */
+}
+
+.basket-icon {
     font-size: 1.5rem;
-    color: gray;
-    transition: color 0.2s ease;
-  }
-  
-  .heart-icon.favorite {
-    color: red;
-  }
-  
-  .heart-icon:hover {
-    color: darkred;
-  }
-  
-  /* Product Image */
-  .product-image {
+    color: #333; /* Default dark color for visibility */
+    cursor: pointer;
+    margin-left: 10px; /* Add spacing between price and basket */
+    transition: transform 0.2s ease, color 0.2s ease;
+    filter: brightness(0) invert(0); /* Ensure visibility on light background */
+}
+
+.basket-icon:hover {
+    transform: scale(1.2); /* Slightly enlarge on hover */
+    color: #007bff; /* Change color to blue on hover */
+}
+
+.price-and-basket {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.product-price {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Product Image */
+.product-image {
     width: 100%;
     height: auto;
     border-radius: 8px;
     margin-bottom: 8px;
-  }
-  
-  /* Product Info */
-  .product-card h3 {
-    margin: 8px 0;
-  }
-  
-  .product-card p {
-    margin: 4px 0;
-    color: #555;
-  }
-  .popup-message {
+}
+
+/* Popup Message */
+.popup-message {
     position: fixed;
     top: 10%;
     left: 50%;
@@ -61,20 +91,19 @@
     font-size: 1rem;
     z-index: 1000;
     animation: fade-in-out 3s ease;
-  }
-  
-  @keyframes fade-in-out {
+}
+
+@keyframes fade-in-out {
     0% {
-      opacity: 0;
+        opacity: 0;
     }
     10% {
-      opacity: 1;
+        opacity: 1;
     }
     90% {
-      opacity: 1;
+        opacity: 1;
     }
     100% {
-      opacity: 0;
+        opacity: 0;
     }
-  }
-  
+}
